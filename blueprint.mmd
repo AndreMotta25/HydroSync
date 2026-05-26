@@ -1,0 +1,46 @@
+---
+title: HydroSync — Header & Hero Blueprint
+---
+
+── 1. Header ───────────────────────────────────────────────────────
+
+  ANTES:
+    Header sempre visivel no topo.
+    scroll > 20px: mudava de bg-white/70 h-20 para bg-white/90 h-16 shadow-sm.
+
+  DEPOIS:
+    Header comeca oculto (-translate-y-full).
+    scroll > 100px descendo: header desliza para translate-y-0 + bg-white/90 h-16 shadow-sm.
+    scroll < 100px: header volta a esconder (-translate-y-full).
+
+── 2. Hero ocupando topo ───────────────────────────────────────────
+
+  ANTES:
+    <main class="mt-20"> empurrava todo o conteudo 80px para baixo.
+
+  DEPOIS:
+    <main> sem mt-20.
+    Video de fundo da Hero ocupa o espaco do topo.
+
+── 3. Botoes da Hero ───────────────────────────────────────────────
+
+  ANTES:
+    Botoes "Adquirir Tecnologia" e "Ver a ciencia" sempre visiveis.
+
+  DEPOIS:
+    Botoes comecam invisiveis (opacity-0 translate-y-4).
+    scroll > 100px: fade-in junto com o header (opacity-100 translate-y-0).
+    Usam duration-700 (mais lento que o header).
+
+── 4. Hook compartilhado ───────────────────────────────────────────
+
+  CRIADO:  src/hooks/useScrollReveal.ts
+  Usado por Header e Hero.
+  Logica: monitora scrollY, retorna true quando scroll > 100px e descendo.
+
+── Arquivos alterados ───────────────────────────────────────────────
+
+  src/hooks/useScrollReveal.ts   → criado
+  src/components/Header.tsx      → refatorado para usar hook + slide
+  src/components/Hero.tsx        → add "use client" + hook + CTAs reveal
+  src/app/page.tsx               → mt-20 removido do main
