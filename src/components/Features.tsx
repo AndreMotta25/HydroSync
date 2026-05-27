@@ -1,12 +1,58 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "motion/react";
+
+const slides = [
+  {
+    image: "/images/imagem-1.webp",
+    tag: "ALGORITMOS PREDITIVOS",
+    title: "Não medimos apenas\nágua.",
+    description:
+      "Calculamos sua necessidade baseado em clima, atividade e dados antropométricos.",
+  },
+  {
+    image: "/images/imagem-2.webp",
+    tag: "AUTONOMIA RADICAL",
+    title: "45 minutos.\n30 dias.",
+    description:
+      "Sistema de carregamento magnético que sustenta 30 dias de monitoramento constante com uma única carga.",
+  },
+  {
+    image: "/images/imagem-3.webp",
+    tag: "RESISTÊNCIA MILITAR",
+    title: "Projeto para\no real.",
+    description:
+      "Certificado IPX7. Construído em aço inox 316L para acompanhar qualquer ambiente.",
+  },
+  {
+    image: "/images/imagem-4.webp",
+    tag: "SENSORES ULTRASSÔNICOS",
+    title: "Precisão de\ngrau laboratorial.",
+    description:
+      "Sensores integrados na tampa capturam cada gole sem contato físico com a água.",
+  },
+];
 
 export function Features() {
+  const [current, setCurrent] = useState(0);
+
+  // Auto-play
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section
       id="features"
       className="py-32 px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto"
     >
-      <div className="mb-24 flex flex-col md:flex-row md:items-center justify-between gap-10">
+      {/* Header */}
+      <div className="mb-16 flex flex-col md:flex-row md:items-center justify-between gap-10">
         <h2 className="font-headline text-[48px] md:text-[64px] tracking-tight">
           Engenharia em cada
           <br />
@@ -18,109 +64,100 @@ export function Features() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-        {/* Large: Algoritmos Preditivos */}
-        <div className="md:col-span-8 rounded-[40px] overflow-hidden relative min-h-[500px] group border border-outline/5">
-          <div className="absolute inset-0 bg-primary/20 blur-[100px] -z-10" />
-          <Image
-            src="/images/imagem-1.webp"
-            alt="App Integration"
-            fill
-            sizes="(max-width: 768px) 100vw, 66vw"
-            className="object-cover transition-transform duration-1000 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-on-surface/90 via-on-surface/20 to-transparent" />
-          <div className="absolute bottom-0 p-12 text-white">
-            <h3 className="font-headline text-[40px] mb-6">
-              Algoritmos Preditivos
-            </h3>
-            <p className="max-w-md text-lg opacity-80 leading-relaxed">
-              Não medimos apenas água. Calculamos sua necessidade baseado em
-              clima, atividade e dados antropométricos.
-            </p>
-          </div>
-        </div>
+      {/* Slide container */}
+      <div className="relative rounded-[40px] overflow-hidden min-h-[560px] md:min-h-[640px] shadow-[0_30px_100px_-15px_rgba(0,88,188,0.45)]">
+        <div className="absolute inset-0 bg-primary/10 blur-[120px] -z-10" />
 
-        {/* Small: Sensores Ultrassônicos */}
-        <div className="md:col-span-4 rounded-[40px] bg-primary text-on-primary p-12 flex flex-col justify-between shadow-2xl shadow-primary/20">
-          <div>
-            <span className="material-symbols-outlined text-6xl mb-8 opacity-80">
-              sensors
-            </span>
-            <h3 className="font-headline text-[32px] leading-tight mb-6">
-              Sensores Ultrassônicos
-            </h3>
-            <p className="text-on-primary/80 text-lg leading-relaxed">
-              Precisão de grau laboratorial integrada na tampa, capturando cada
-              gole sem contato físico com a água.
-            </p>
-          </div>
-          <div className="mt-12 pt-10 border-t border-on-primary/10">
-            <div className="flex justify-between items-center mb-4">
-              <span className="font-label uppercase tracking-widest opacity-60 text-[10px]">
-                Taxa de Sincronia
-              </span>
-              <span className="font-bold">LIVE</span>
-            </div>
-            <div className="h-1 w-full bg-on-primary/10 rounded-full overflow-hidden">
-              <div className="h-full bg-white w-full animate-pulse" />
-            </div>
-          </div>
-        </div>
-
-        {/* Small: Resistência Militar */}
-        <div className="md:col-span-4 rounded-[40px] overflow-hidden relative min-h-[400px] group border border-outline/5">
-          <div className="absolute inset-0 bg-secondary/10 blur-[80px] -z-10" />
-          <Image
-            src="/images/imagem-3.webp"
-            alt="Durability"
-            fill
-            sizes="(max-width: 768px) 100vw, 33vw"
-            className="object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110"
-          />
-          <div className="absolute inset-0 bg-on-surface/30" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="text-center">
-              <h4 className="font-headline text-[32px] text-white">
-                RESISTÊNCIA MILITAR
-              </h4>
-              <p className="text-white/60 font-label mt-2">
-                CERTIFICADO IPX7
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Wide: Autonomia */}
-        <div className="md:col-span-8 rounded-[40px] bg-white border border-outline/10 p-12 flex flex-col md:flex-row gap-12 items-center overflow-hidden">
-          <div className="flex-1 order-2 md:order-1">
-            <h3 className="font-headline text-[36px] mb-6 leading-tight">
-              Autonomia Radical.
-            </h3>
-            <p className="text-on-surface-variant text-lg mb-10 leading-relaxed">
-              Sistema de carregamento magnético que sustenta 30 dias de
-              monitoramento constante com uma única carga de 45 minutos.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <span className="px-5 py-2.5 bg-surface-container-low rounded-xl border border-outline/5 font-bold text-xs uppercase tracking-widest text-primary">
-                Aço Inox 316L
-              </span>
-              <span className="px-5 py-2.5 bg-surface-container-low rounded-xl border border-outline/5 font-bold text-xs uppercase tracking-widest text-primary">
-                BT 5.2 Low Energy
-              </span>
-            </div>
-          </div>
-          <div className="flex-1 order-1 md:order-2 relative group">
-            <div className="absolute inset-0 bg-primary/10 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity" />
+        {/* Previous image — stays underneath during bubble reveal */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={current}
+            className="absolute inset-0"
+            initial={{ clipPath: "circle(0% at 85% 50%)" }}
+            animate={{ clipPath: "circle(150% at 85% 50%)" }}
+            transition={{
+              duration: 1.2,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          >
             <Image
-              src="/images/imagem-2.webp"
-              alt="Battery & Design"
-              width={600}
-              height={400}
-              className="w-full h-auto drop-shadow-2xl relative z-10"
+              src={slides[current].image}
+              alt={slides[current].tag}
+              fill
+              sizes="100vw"
+              className="object-cover"
+              priority
             />
-          </div>
-        </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Shadow overlay — appears with text */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={`shadow-${current}`}
+            className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/70 via-black/30 to-black/10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          />
+        </AnimatePresence>
+
+        {/* Gradients */}
+        <div className="absolute inset-0 bg-gradient-to-t from-on-surface/90 via-on-surface/30 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-on-surface/40 to-transparent pointer-events-none" />
+
+        {/* Text content */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={`text-${current}`}
+            className="absolute inset-0 flex items-end pointer-events-none"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, delay: 0.8 }}
+          >
+            <div className="p-10 md:p-16 w-full">
+              <span className="block font-label text-[10px] uppercase tracking-[0.2em] text-white/50 mb-4">
+                {slides[current].tag}
+              </span>
+
+              <h3 className="font-headline text-[36px] md:text-[56px] text-white leading-[1.1] mb-6 whitespace-pre-line">
+                {slides[current].title}
+              </h3>
+
+              <p className="max-w-lg text-white/70 text-lg leading-relaxed">
+                {slides[current].description}
+              </p>
+
+              {/* Navigation */}
+              <div className="flex items-center gap-6 mt-10 pointer-events-auto">
+                <div className="flex gap-3">
+                  {slides.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setCurrent(i)}
+                      className="min-h-[44px] flex items-center cursor-pointer"
+                      aria-label={`Ir para slide ${i + 1}`}
+                    >
+                      <span
+                        className={`block h-[3px] rounded-full transition-all duration-500 ${
+                          i === current
+                            ? "w-12 bg-white"
+                            : "w-6 bg-white/30 hover:bg-white/50"
+                        }`}
+                      />
+                    </button>
+                  ))}
+                </div>
+                <span className="font-label text-white/40 text-xs tracking-widest">
+                  {String(current + 1).padStart(2, "0")} /{" "}
+                  {String(slides.length).padStart(2, "0")}
+                </span>
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );
