@@ -34,6 +34,9 @@ export function Hero() {
       {/* Gradient overlay */}
       <div className="absolute inset-0 -z-[5] bg-gradient-to-t from-background/80 via-background/20 to-background/40 md:bg-gradient-to-b md:from-background/50 md:via-transparent md:to-background/50" />
 
+      {/* Blue gradient right to left */}
+      <div className="absolute inset-0 -z-[4] bg-gradient-to-l from-primary/20 via-primary/5 to-transparent pointer-events-none" />
+
       {/* Content on top */}
       <div className="max-w-[1440px] mx-auto w-full z-10 relative flex flex-col items-center text-center mt-auto mb-0">
         <p className="font-headline text-[24px] md:text-[32px] text-white/90 mt-[180px] md:mt-[280px] mb-12 max-w-2xl leading-tight font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]" style={{ WebkitTextStroke: "1px rgba(0,0,0,0.4)" }}>
