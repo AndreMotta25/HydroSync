@@ -131,7 +131,7 @@ export function Features() {
                     <button
                       key={i}
                       onClick={() => setCurrent(i)}
-                      className="min-h-[44px] flex items-center cursor-pointer"
+                      className="min-h-[52px] md:min-h-[44px] min-w-[52px] md:min-w-auto flex items-center justify-center cursor-pointer"
                       aria-label={`Ir para slide ${i + 1}`}
                     >
                       <span
