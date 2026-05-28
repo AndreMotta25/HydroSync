@@ -47,28 +47,13 @@ export function Features() {
   }, []);
 
   return (
-    <section
-      id="features"
-      className="py-32 px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto"
-    >
-      {/* Header */}
-      <div className="mb-16 flex flex-col md:flex-row md:items-center justify-between gap-10">
-        <h2 className="font-headline text-[48px] md:text-[64px] tracking-tight">
-          Engenharia em cada
-          <br />
-          ml consumido.
-        </h2>
-        <p className="font-body text-on-surface-variant max-w-sm text-lg">
-          A HydroSync monitora seu biomarcador mais volátil em tempo real,
-          integrando-se ao seu ecossistema digital.
-        </p>
-      </div>
-
-      {/* Slide container */}
-      <div className="relative rounded-[40px] overflow-hidden min-h-[560px] md:min-h-[640px] shadow-[0_30px_100px_-15px_rgba(0,88,188,0.45)]">
+    <section id="features" className="relative w-full overflow-hidden">
+      {/* Full-width slide */}
+      <div className="relative min-h-[80vh] md:min-h-screen w-full">
+        {/* Background glow */}
         <div className="absolute inset-0 bg-primary/10 blur-[120px] -z-10" />
 
-        {/* Previous image — stays underneath during bubble reveal */}
+        {/* Bubble reveal images */}
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
@@ -107,22 +92,31 @@ export function Features() {
         <div className="absolute inset-0 bg-gradient-to-t from-on-surface/90 via-on-surface/30 to-transparent pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-on-surface/40 to-transparent pointer-events-none" />
 
-        {/* Text content */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={`text-${current}`}
-            className="absolute inset-0 flex items-end pointer-events-none"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4, delay: 0.8 }}
-          >
-            <div className="p-10 md:p-16 w-full">
+        {/* Header + content */}
+        <div className="relative z-10 max-w-[1440px] mx-auto w-full h-full min-h-[80vh] md:min-h-screen flex flex-col justify-end px-margin-mobile md:px-margin-desktop pb-20 md:pb-32">
+          {/* Section title */}
+          <div className="absolute top-16 md:top-24 left-0 px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto w-full">
+            <h2 className="font-headline text-[48px] md:text-[64px] tracking-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+              Engenharia em cada
+              <br />
+              ml consumido.
+            </h2>
+          </div>
+
+          {/* Slide text content */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`text-${current}`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4, delay: 0.8 }}
+            >
               <span className="block font-label text-[10px] uppercase tracking-[0.2em] text-white/50 mb-4">
                 {slides[current].tag}
               </span>
 
-              <h3 className="font-headline text-[36px] md:text-[56px] text-white leading-[1.1] mb-6 whitespace-pre-line">
+              <h3 className="font-headline text-[36px] md:text-[56px] text-white leading-[1.1] mb-6 whitespace-pre-line drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
                 {slides[current].title}
               </h3>
 
@@ -131,7 +125,7 @@ export function Features() {
               </p>
 
               {/* Navigation */}
-              <div className="flex items-center gap-6 mt-10 pointer-events-auto">
+              <div className="flex items-center gap-6 mt-10">
                 <div className="flex gap-3">
                   {slides.map((_, i) => (
                     <button
@@ -155,9 +149,9 @@ export function Features() {
                   {String(slides.length).padStart(2, "0")}
                 </span>
               </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
     </section>
   );
