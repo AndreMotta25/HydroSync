@@ -128,14 +128,14 @@ export function HowItWorks() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-0">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-28 md:gap-0">
           {/* Card 0 — BIO-CONFIG */}
           <motion.div
             ref={cardRef0}
             className={`relative md:pr-12 md:border-r border-surface/5`}
             style={{ top: cardY0 }}
           >
-            <div className="text-[140px] font-headline opacity-5 absolute -top-24 -left-6 leading-none">
+            <div className="text-[100px] md:text-[140px] font-headline opacity-5 absolute md:-top-24 md:-left-6 -top-14 -left-4 leading-none">
               {STEPS[0].number}
             </div>
             <motion.div
@@ -164,7 +164,7 @@ export function HowItWorks() {
             className={`relative md:px-12 md:border-r border-surface/5`}
             style={{ top: cardY1 }}
           >
-            <div className="text-[140px] font-headline opacity-5 absolute -top-24 -left-6 leading-none">
+            <div className="text-[100px] md:text-[140px] font-headline opacity-5 absolute md:-top-24 md:-left-6 -top-14 -left-4 leading-none">
               {STEPS[1].number}
             </div>
             <motion.div
@@ -193,7 +193,7 @@ export function HowItWorks() {
             className={`relative md:px-12 md:border-r border-surface/5`}
             style={{ top: cardY2 }}
           >
-            <div className="text-[140px] font-headline opacity-5 absolute -top-24 -left-6 leading-none">
+            <div className="text-[100px] md:text-[140px] font-headline opacity-5 absolute md:-top-24 md:-left-6 -top-14 -left-4 leading-none">
               {STEPS[2].number}
             </div>
             <motion.div
@@ -222,7 +222,7 @@ export function HowItWorks() {
             className={`relative md:pl-12`}
             style={{ top: cardY3 }}
           >
-            <div className="text-[140px] font-headline opacity-5 absolute -top-24 -left-6 leading-none">
+            <div className="text-[100px] md:text-[140px] font-headline opacity-5 absolute md:-top-24 md:-left-6 -top-14 -left-4 leading-none">
               {STEPS[3].number}
             </div>
             <motion.div

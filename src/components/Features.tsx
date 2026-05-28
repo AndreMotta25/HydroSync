@@ -84,7 +84,7 @@ export function Features() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
+            transition={{ duration: 0.5 }}
           />
         </AnimatePresence>
 
@@ -110,7 +110,7 @@ export function Features() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.4, delay: 0.8 }}
+              transition={{ duration: 0.5 }}
             >
               <span className="block font-label text-[10px] uppercase tracking-[0.2em] text-white/50 mb-4">
                 {slides[current].tag}

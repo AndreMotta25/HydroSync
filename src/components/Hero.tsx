@@ -8,7 +8,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden py-24 px-margin-mobile md:px-margin-desktop w-full"
+      className="relative min-h-[100dvh] md:min-h-screen flex items-center justify-center overflow-hidden py-24 px-margin-mobile md:px-margin-desktop w-full"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-background -z-30" />
