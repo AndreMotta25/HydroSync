@@ -15,9 +15,9 @@ export function Hero() {
 
       {/* Title behind everything — watermark */}
       <div className="absolute top-[15%] inset-x-0 -z-10 flex items-center justify-center pointer-events-none select-none">
-        <h1 className="font-headline text-[80px] md:text-[180px] leading-[0.85] text-white/90 font-bold tracking-tight text-center drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+        <span className="font-headline text-[80px] md:text-[180px] leading-[0.85] text-white/90 font-bold tracking-tight text-center drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]" aria-hidden="true">
           HydroSync
-        </h1>
+        </span>
       </div>
 
       {/* Video covering entire hero */}
@@ -39,11 +39,11 @@ export function Hero() {
 
       {/* Content on top */}
       <div className="max-w-[1440px] mx-auto w-full z-10 relative flex flex-col items-center text-center mt-auto mb-0">
-        <p className="font-headline text-[24px] md:text-[32px] text-white/90 mt-[180px] md:mt-[280px] mb-12 max-w-2xl leading-tight font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]" style={{ WebkitTextStroke: "1px rgba(0,0,0,0.4)" }}>
+        <h1 className="font-headline text-[24px] md:text-[32px] text-white/90 mt-[180px] md:mt-[280px] mb-12 max-w-2xl leading-tight font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]" style={{ WebkitTextStroke: "1px rgba(0,0,0,0.4)" }}>
           Estabilizando sua performance através da
           <br />
           <span className="text-white italic">hidratação de precisão</span>.
-        </p>
+        </h1>
 
         {/* Stats */}
         <div className="mt-2 md:mt-4 grid grid-cols-3 gap-12 md:gap-24 border-t border-white/20 pt-10 w-full max-w-4xl">

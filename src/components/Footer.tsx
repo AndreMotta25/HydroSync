@@ -29,7 +29,7 @@ function NewsletterForm() {
 
   async function onSubmit(data: NewsletterInput) {
     // TODO: chamar API route /api/newsletter
-    console.log("Newsletter:", data.email);
+    // TODO: chamar API route /api/newsletter
     reset();
   }
 
@@ -134,7 +134,7 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop mt-24 pt-12 border-t border-outline/5 flex flex-col md:flex-row justify-between items-center gap-6">
         <p className="font-label text-on-surface-variant opacity-60">
-          &copy; 2024 HydroSync Systems. Todos os direitos reservados.
+          &copy; 2026 HydroSync Systems. Todos os direitos reservados.
         </p>
         <div className="flex gap-8 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant opacity-60">
           <a href="#" className="hover:text-primary transition-colors">
